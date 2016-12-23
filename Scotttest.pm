@@ -18,12 +18,19 @@ our %EXPORT_TAGS = (
 
 $EXPORT_TAGS{'all'} = [
     'test_dump',
-    'A_DEFINED_CONSTANT',
+    'test_dump_avar',
+    'A_TEST_DUMP_FORMAT',
     map { @{ $EXPORT_TAGS{$_} } } keys %EXPORT_TAGS
 ];
 our @EXPORT_OK = @{ $EXPORT_TAGS{'all'} };
 our @EXPORT = ();
 
+
+sub test_dump_print {
+    my ($fh, $str, @args) = @_;
+    printf($fh $str, @args);
+    return;
+}
 
 
 1;
